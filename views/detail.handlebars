@@ -133,8 +133,10 @@
                                     {{ unit }}
                                 </h3>
                             </div>
-                            <script src="https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js"data-button-label="Pagar!" data-preference-id={{global.id}}></script>
-                            <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                            <form method="post" action="{{init_point}}">
+
+                            <button type="submit" class="mercadopago-button" >Pagar</a>
+                            </form>
                         </div>
                     </div>
                 </div>
