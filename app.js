@@ -17,10 +17,11 @@ var app = express();
  
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-
-app.use(express.static('assets'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static('assets'));
+
+
 app.use('/assets', express.static(__dirname + '/assets'));
 
 app.get('/', function (req, res) {
@@ -43,8 +44,10 @@ app.get('/pending', function (req, res) {
 });
 app.post('/webhook',function (req, res) {
     console.log('WEBHOOK:')
-    console.log("query"+req.query)
-    console.log("body"+ req.body)
+    console.log('query')
+    console.log(req.query)
+    console.log('body')
+    console.log(req.body)
     res.json({success:'ok'}).status(200)
 })
 app.get('/detail', function (req, res) {
