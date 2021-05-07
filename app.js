@@ -110,7 +110,7 @@ app.get('/detail', function (req, res) {
     mercadopago.preferences.create(preference)
         .then(function(response){
     // Este valor reemplazará el string "<%= global.id %>" en tu HTML
-        console.log(response)
+        console.log("ID PREFERENCIA"+response.body.id)
         init_point = response.body.init_point 
         res.render('detail', {title,price,unit,img,init_point});
     }).catch(function(error){
