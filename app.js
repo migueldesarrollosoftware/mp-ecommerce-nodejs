@@ -30,6 +30,15 @@ app.get('/img/:img',function (req, res) {
     res.sendFile(path.join(__dirname,`/assets/${req.params.img}`))
 })
 
+app.get('/success', function (req, res) {
+    res.render('success',req.query);
+});
+app.get('/failure', function (req, res) {
+    res.render('failure');
+});
+app.get('/pending', function (req, res) {
+    res.render('pending');
+});
 app.get('/detail', function (req, res) {
 
     let { title,price,unit,img} = req.query 
@@ -78,7 +87,13 @@ app.get('/detail', function (req, res) {
 
             ],
             installments: 6
-        }
+        },
+        back_urls: {
+            success: `https://migueldesar-mp-commerce-nodejs.herokuapp.com/success`,
+            failure: `https://migueldesar-mp-commerce-nodejs.herokuapp.com/failure`,
+            pending: `https://migueldesar-mp-commerce-nodejs.herokuapp.com/pending`,
+        },
+        auto_return: "approved",
     }
     mercadopago.preferences.create(preference)
         .then(function(response){
