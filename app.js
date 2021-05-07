@@ -7,7 +7,8 @@ const mercadopago = require ('mercadopago');
 
 // Agrega credenciales
 mercadopago.configure({
-  access_token: "APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439"
+  access_token: "APP_USR-8208253118659647-112521-dd670f3fd6aa9147df51117701a2082e-677408439",
+  integrator_id: 'dev_2e4ad5dd362f11eb809d0242ac130004',
 });
 
   
@@ -39,6 +40,11 @@ app.get('/failure', function (req, res) {
 app.get('/pending', function (req, res) {
     res.render('pending');
 });
+app.post('/webhook',function (req, res) {
+    console.log('WEBHOOK:')
+    console.log(req.query)
+    res.json({success:'ok'}).status(200)
+})
 app.get('/detail', function (req, res) {
 
     let { title,price,unit,img} = req.query 
@@ -94,6 +100,7 @@ app.get('/detail', function (req, res) {
             pending: `https://migueldesar-mp-commerce-nodejs.herokuapp.com/pending`,
         },
         auto_return: "approved",
+        notification_url:`https://migueldesar-mp-commerce-nodejs.herokuapp.com/webhook`
     }
     mercadopago.preferences.create(preference)
         .then(function(response){
