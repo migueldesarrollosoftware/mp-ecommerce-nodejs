@@ -92,10 +92,11 @@ app.get('/detail', function (req, res) {
                 {
                     id: "diners"
                 },
+            ],
+            excluded_payment_types: [
                 {
-                    id: "pagoefectivo_atm"
-                },
-
+                    id: "atm"
+                }
             ],
             installments: 6
         },
