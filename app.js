@@ -42,7 +42,8 @@ app.get('/pending', function (req, res) {
 });
 app.post('/webhook',function (req, res) {
     console.log('WEBHOOK:')
-    console.log(req.query)
+    console.log("query"+req.query)
+    console.log("body"+ req.body)
     res.json({success:'ok'}).status(200)
 })
 app.get('/detail', function (req, res) {
