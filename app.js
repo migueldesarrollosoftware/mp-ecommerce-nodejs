@@ -11,7 +11,7 @@ mercadopago.configure({
   integrator_id: 'dev_2e4ad5dd362f11eb809d0242ac130004',
 });
 
-  
+//cambio
 
 var app = express();
  
@@ -120,4 +120,4 @@ app.get('/detail', function (req, res) {
 
 });
 
-app.listen(port);
+app.listen(port,"172.26.13.95");
