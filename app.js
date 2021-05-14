@@ -1,6 +1,6 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 80
 const path = require('path')
 // SDK de Mercado Pago
 const mercadopago = require ('mercadopago');
@@ -120,4 +120,4 @@ app.get('/detail', function (req, res) {
 
 });
 
-app.listen(port);
+app.listen(port,"172.26.13.95");
